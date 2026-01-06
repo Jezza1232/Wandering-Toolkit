@@ -1,0 +1,141 @@
+2025-12-25T18:37:09Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-25T18:37:09Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-25T18:37:09Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-25T18:37:09Z no started servers found in eye.json
+2025-12-25T18:38:09Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-25T18:38:09Z no started servers found in eye.json
+2025-12-25T18:39:09Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-25T18:39:09Z no started servers found in eye.json
+2025-12-25T18:40:09Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-25T18:40:09Z no started servers found in eye.json
+2025-12-25T18:41:10Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-25T18:41:10Z no started servers found in eye.json
+2025-12-25T18:42:10Z detected 1 ArkAscendedServer.exe processes running (expected from eye.json: 1)
+2025-12-25T18:42:10Z checking TheIsland
+2025-12-25T18:43:10Z detected 1 ArkAscendedServer.exe processes running (expected from eye.json: 1)
+2025-12-25T18:43:10Z checking TheIsland
+2025-12-25T18:44:11Z detected 1 ArkAscendedServer.exe processes running (expected from eye.json: 1)
+2025-12-25T18:44:11Z checking TheIsland
+2025-12-25T18:45:12Z detected 1 ArkAscendedServer.exe processes running (expected from eye.json: 1)
+2025-12-25T18:45:12Z checking TheIsland
+2025-12-25T18:46:13Z detected 1 ArkAscendedServer.exe processes running (expected from eye.json: 1)
+2025-12-25T18:46:13Z checking TheIsland
+2025-12-25T18:47:14Z detected 1 ArkAscendedServer.exe processes running (expected from eye.json: 1)
+2025-12-25T18:47:14Z checking TheIsland
+2025-12-25T18:48:15Z detected 1 ArkAscendedServer.exe processes running (expected from eye.json: 1)
+2025-12-25T18:48:15Z checking TheIsland
+2025-12-25T18:49:15Z detected 1 ArkAscendedServer.exe processes running (expected from eye.json: 1)
+2025-12-25T18:49:15Z checking TheIsland
+2025-12-25T18:56:44Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-25T18:56:44Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-25T18:56:44Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 1)
+2025-12-25T18:56:44Z checking TheIsland
+2025-12-25T18:56:44Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-25T18:56:44Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-25T18:56:44Z TheIsland: crash suspected (process not running)
+2025-12-25T18:56:44Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 1)
+2025-12-25T18:56:44Z checking TheIsland
+2025-12-25T18:56:44Z TheIsland: crash suspected (process not running)
+2025-12-25T18:56:45Z TheIsland: restarting after 10 seconds
+2025-12-25T18:56:45Z TheIsland: restarting after 10 seconds
+2025-12-25T18:56:55Z TheIsland: starting C:\Ark-Launcher-Lite-By-Wanderer\start files\start_TheIsland.bat
+2025-12-25T18:56:55Z TheIsland: starting C:\Ark-Launcher-Lite-By-Wanderer\start files\start_TheIsland.bat
+2025-12-25T20:15:34Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-25T20:15:34Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-25T20:15:34Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 1)
+2025-12-25T20:15:34Z checking TheIsland
+2025-12-25T20:15:35Z TheIsland: crash suspected (process not running)
+2025-12-25T20:15:35Z TheIsland: restarting after 10 seconds
+2025-12-25T20:15:45Z TheIsland: starting C:\Ark-Launcher-Lite-By-Wanderer\start files\start_TheIsland.bat
+2025-12-25T20:17:07Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-25T20:17:07Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-25T20:17:07Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-25T20:17:07Z no started servers found in eye.json
+2025-12-25T20:18:40Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-25T20:18:40Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-25T20:18:40Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-25T20:18:40Z no started servers found in eye.json
+2025-12-25T22:11:34Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-25T22:11:34Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-25T22:11:34Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-25T22:11:34Z no started servers found in eye.json
+2025-12-25T22:32:06Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-25T22:32:06Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-25T22:32:06Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-25T22:32:06Z no started servers found in eye.json
+2025-12-25T22:42:07Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-25T22:42:07Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-25T22:42:07Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-25T22:42:07Z no started servers found in eye.json
+2025-12-25T22:43:20Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-25T22:43:20Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-25T22:43:20Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-25T22:43:20Z no started servers found in eye.json
+2025-12-25T22:44:20Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-25T22:44:20Z no started servers found in eye.json
+2025-12-25T22:45:20Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-25T22:45:20Z no started servers found in eye.json
+2025-12-25T22:46:59Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-25T22:46:59Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-25T22:46:59Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-25T22:46:59Z no started servers found in eye.json
+2025-12-25T22:47:59Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-25T22:47:59Z no started servers found in eye.json
+2025-12-26T10:29:35Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-26T10:29:35Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-26T10:29:36Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T10:29:36Z no started servers found in eye.json
+2025-12-26T10:30:36Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T10:30:36Z no started servers found in eye.json
+2025-12-26T10:41:14Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-26T10:41:14Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-26T10:41:14Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T10:41:14Z no started servers found in eye.json
+2025-12-26T10:46:34Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-26T10:46:34Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-26T10:46:34Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T10:46:34Z no started servers found in eye.json
+2025-12-26T10:48:51Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-26T10:48:51Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-26T10:48:51Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T10:48:51Z no started servers found in eye.json
+2025-12-26T10:49:51Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T10:49:51Z no started servers found in eye.json
+2025-12-26T10:50:51Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T10:50:51Z no started servers found in eye.json
+2025-12-26T10:51:52Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T10:51:52Z no started servers found in eye.json
+2025-12-26T10:52:52Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T10:52:52Z no started servers found in eye.json
+2025-12-26T10:53:52Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T10:53:52Z no started servers found in eye.json
+2025-12-26T10:54:52Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T10:54:52Z no started servers found in eye.json
+2025-12-26T10:55:52Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T10:55:52Z no started servers found in eye.json
+2025-12-26T10:56:52Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T10:56:52Z no started servers found in eye.json
+2025-12-26T10:57:52Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T10:57:52Z no started servers found in eye.json
+2025-12-26T10:58:53Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T10:58:53Z no started servers found in eye.json
+2025-12-26T10:59:53Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T10:59:53Z no started servers found in eye.json
+2025-12-26T11:00:55Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-26T11:00:55Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-26T11:00:55Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T11:00:55Z no started servers found in eye.json
+2025-12-26T11:04:16Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-26T11:04:16Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-26T11:04:16Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T11:04:16Z no started servers found in eye.json
+2025-12-26T11:05:16Z detected 0 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T11:05:16Z no started servers found in eye.json
+2025-12-26T11:12:59Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-26T11:12:59Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-26T11:12:59Z detected 1 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T11:12:59Z no started servers found in eye.json
+2025-12-26T11:13:49Z watchdog starting with poll=60 s, retries=2, autoRestart=True, warmup=180
+2025-12-26T11:13:49Z watchdog using eye.json at C:\Ark-Launcher-Lite-By-Wanderer\Main\AllKnowingEye\eye.json
+2025-12-26T11:13:49Z detected 1 ArkAscendedServer.exe processes running (expected from eye.json: 0)
+2025-12-26T11:13:49Z no started servers found in eye.json

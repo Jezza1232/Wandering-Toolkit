@@ -1,0 +1,14 @@
+ETS2 STUFF.
+
+INFO:
+- before setting any download link make sure its working (test download then delete right after its done).
+- make this program wait for download to complete and install before moving on.
+- if its possible auto install programs.
+
+LINKS:
+
+TruckyHub: "https://truckyapp.com/client-download".
+TruckersMP: "https://truckersmp.com/download".
+Dbus World: "https://dbusworld.com/client/thanks" or try "https://dbusworld.com/uploads/launcher/DBusWorld-Launcher-100.exe".
+TruckyMods: Windows "https://truckyapp.com/modsmanager-download". Linux "https://truckyapp.com/modsmanager-download-linux" Mac-coming-soon "https://truckymods.io/"
+steamcmd app ID: 1948160.

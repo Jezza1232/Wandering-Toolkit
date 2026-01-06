@@ -1,0 +1,75 @@
+Coding Notes
+============
+
+2026-01-05
+- Fixed data/main/menu.ps1 parsing (removed trailing commas) and split transcript logging to its own file to avoid log locking.
+- Added tool auto-discovery: tool folders without tool.ps1 now wrap common launchers (menu/start/run/launch scripts) automatically.
+- Updated the menu to a two-level view (Tools, Links) with a Links screen driven by data/main/links/links.txt.
+- Ark Launcher tool now shells into its bundled Ark Menu.bat using a stable tool root capture.
+- menu.bat now walks upward to locate the Wandering-ToolKit root when launched from elsewhere.
+
+2026-01-05 (later)
+- Relocated SteamCMD to data/main/steamcmd and bootstrap now creates steamcmd, server, and downloads folders; Ark Menu.bat now installs/checks SteamCMD in that new path.
+- Added tool manifests for ATS/ETS downloaders so they appear in the toolkit menu and write output to data/downloads/ATS or data/downloads/ETS2.
+- Hardened tool root resolution under strict mode for ATS/ETS downloaders (script-scope cache + Context.ToolsRoot fallback).
+- Refreshed top-level Readme to explain how to run menu.bat, what tools exist, and that prereqs are fetched automatically.
+
+2026-01-05 (even later)
+- Added All Seeing Eye and Ark Eye discovery scripts to scan for server executables and seed eye.json; made them PowerShell 5.x compatible (manual depth filter, no -Depth).
+- Watchdog/Eye logging now store ProcessName/ExecutablePath to monitor any server exe, not just Ark.
+- Added toolkit manifest for All Seeing Eye so it appears in the Tools menu; RunWatchdog supports optional discovery flag.
+- Added Ultimate Rcon tool entry to launch the new rcon client from data/rcon.
+
+2026-01-05 (night)
+- Fixed RunWatchdog findstr usage to stop command-line errors when no args are provided.
+- Improved All Seeing Eye watchdog start-folder resolution and added seeding from GameUserSettings.ini (ports, passwords, install path) across common roots to auto-populate eye.json.
+- Added guard logging in discovery when no directories are found so failures are visible.
+
+2026-01-06 (early morning)
+- All Seeing Eye: discovery now runs automatically before watchdog start, scans common roots (servers/manager/Ark_SA) with exe hints for ats/ets2/ark_sa/ark_se, and prints eye.json/eye.txt paths when done.
+- Watchdog: logs live eye snapshots each poll, logs eye.txt path, and auto-promotes entries with running processes from Discovered→Started so crash/restart logic engages.
+- RunWatchdog always runs discovery first (no -Discover flag needed) and the console shows discovery progress; note: an overnight test showed the scan appeared to hang after "Scanning C:\"—likely the deep C: walk—so prefer narrowing roots or raising MaxDepth if it’s slow.
+
+2026-01-06 (mid-day)
+- overnight testing complete turns out the watchdog WAS really running however it matched normal windows .exe's as game server locations and dir's thats not good for a game server toolkit.
+- all testing file's have been put into the testing results folder for review.
+
+2026-01-06 (afternoon)
+- Discovery tightened: default roots now server-only (servers/manager/Ark_SA), skips plain C:\, whitelists known server exes (ArkAscendedServer.exe, eurotrucks2_server.exe, amtrucks_server.exe), requires 'server' in the exe name, and skips Windows/Program Files paths to avoid false matches.
+
+2026-01-06 (evening)
+- Watchdog seeding now scans the moved cluster roots: data/Server, toolkit ASAM-Main/servers, and C:/D:/ASAM-Main/servers, plus the existing Ark_SA/Games/Servers roots, so GameUserSettings.ini files are picked up after the folder reshuffle.
+
+2026-01-06 (night)
+- Seeding is now locked to ASAM-Main/servers (toolkit root, C:/D:) and scans every file beneath for .ini/.sii; GameUserSettings.ini still seeds Ark entries, other INI/SII are logged for visibility.
+
+2026-01-06 (late night)
+- Ark seeding now derives server name from the map folder (parent of ShooterGame) and sets InstallDir to the ShooterGame root with exe path ShooterGame\Binaries\Win64\ArkAscendedServer.exe, preventing bogus names like Win64/Saved in eye.json.
+
+2026-01-07 (morning)
+- Discovery now recognizes Ark executables under ShooterGame\Binaries\Win64 and rewrites server name/install dir to the map folder + ShooterGame root so seeding no longer creates stray "Win64" entries.
+
+2026-01-07 (later)
+- Discovery now treats ASAM-main\Servers as the cluster root, tags each seed with its game family (first subfolder), and passes the game label into eye logging to keep Ark/ETS2 data separated.
+- Watchdog seeding reads MapName and the game family when parsing GameUserSettings.ini so map fields populate and Ark entries carry their game tag.
+
+2026-01-07 (pre-test note)
+- Recorded changes ahead of the next test run per request; discovery/watchdog updates above are pending validation.
+
+2026-01-07 (after new test bundle)
+- New test bundle shows eye entries seeding but Game/Map/ports stayed blank because discovery dropped the Game property when de-duping candidates and reset GamePort after reading configs; fixed discovery to keep Game in the candidate projection and to preserve config-derived ports.
+- Discovery now initialized GamePort once per candidate (instead of wiping it before command-line sniffing) and still parses Map/RCON/Query/Session/MaxPlayers from GameUserSettings.ini; rerun discovery to backfill those fields in eye.json.
+- All Seeing Eye remains read-only (watchdog logs to console only; no config folder/files created).
+ - Fixed watchdog ini scan TrimStart calls so Saved\Config\WindowsServer files are parsed without errors while keeping everything read-only.
+ - Replaced brittle string.Split usage when deriving game family from file path with a regex split to stop exceptions on Windows paths.
+
+2026-01-06 (status handoff)
+- Current state: discovery and config import working; eye.json lists all 17 servers, Game/Engine ini content recorded, but running-state detection still not reliable (7 running servers remain marked Discovered). Ports (GamePort/QueryPort/RconPort) and Map sometimes stay null despite presence in GameUserSettings.ini.
+- Recent attempt: added process index caching and executable-path matching in watchdog Promote-RunningEntries; still not detecting live servers. Suspect missing command-line visibility/permissions; needs further review (Brad).
+- Next actions: investigate CIM process enumeration on the target host (ensure watchdog runs elevated), add additional matching hints (e.g., cluster folder names, working directory), and verify ini parsing paths for port fields. Consider reading ASAM live state if available.
+
+2026-01-06 (late night handoff)
+- All Seeing Eye watchdog seeding now trims and regex-parses GameUserSettings.ini with whitespace tolerance; captures GamePort, RconPort, MaxPlayers, MapName, SessionName, ClusterID, and admin password when present.
+- Added ClusterID support end-to-end (cache + payload) and optional quoted cluster parsing; payload now writes ClusterID into eye.json/eye.txt.
+- Test Server entry in eye.json now shows Map=Bobsmissions_WP, GamePort=7856, RconPort=32402, MaxPlayers=70, ClusterID=Richard2025, ConfigDir/GameIniPath/EngineIniPath set, and admin password captured. QueryPort remains blank because it is absent from the ini.
+- Fixed null-ref crashes during parsing, added safe TryParse, and removed noisy token logging. Discovery run still leaves an old "Test" entry; clean by rerunning discovery after clearing eye.json/eye.txt if desired.

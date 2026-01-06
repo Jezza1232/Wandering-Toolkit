@@ -1,0 +1,12 @@
+the folling code is the ONLY way any steamcmd seaver can start it has to look the same however depending on the server the user ants to start serten info can be added or changed for eg a app id is used to tell steamcmd what game to install. 
+
+the following code is a server start command "eg" so you know what a working one looks like and is inside () because i need you to see the full untouched code for a "test" we will use a ats game server...
+
+(steamcmd.exe +force_install_dir "C:\ATSServer" +login anonymous +app_update 2239530 validate +quit)
+
+now the folling version is for a test of a working server with mods and is for a ark asa server not ase and is using the same () as last time for the full code also using a extra start command for this game only called "mods="
+
+(start ArkAscendedServer.exe TheIsland_WP?listen?SessionName=MyServerName?Port=7777?QueryPort=27015?MaxPlayers=70 -NoBattlEye -mods=948902,1114595)
+
+every time a command needs to go to steamcmd its always better to cd to its dir for saftey so we will NOW move the download and install dir of steamcmd into a new folder called steamcmd in Data\Main folder
+also i now want any server install do go to its own folder called servers so for eg we install 1 ats server 1 ets2 server and 1 ark asa server it would look like "Data\server\ATS" "Data\server\Ark_SA" "Data\server\ETS2" if a server was to be installed

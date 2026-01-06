@@ -1,0 +1,8 @@
+# One entry per line. Format:
+# Name | winget-id
+# Lines starting with # or ; are ignored. Blank lines are ignored.
+# If Name is omitted, the winget-id will be used for display.
+# Example entries:
+7-Zip | 7zip.7zip
+VS Code | Microsoft.VisualStudioCode
+SteamCMD | Valve.SteamCMD

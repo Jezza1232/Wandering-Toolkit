@@ -1,0 +1,134 @@
+ASA Launcher Code Notes (Style & Structure)
+=========================================
+
+Purpose
+- Snapshot of how the batch/Pwsh orchestration is structured and styled so future edits stay consistent.
+
+Changelog / break log (append entries here)
+- 2025-12-26: Fixed launch path/syntax. start_servers now prefers C:\Ark_SA\<token-without-_WP> when present and falls back to C:\Ark_SA\<token>; SteamCMD detection sets a single STEAMCMD path and reuses it; launch string switched to ASA format (no ?Listen, uses ?Port/?QueryPort/?RCONEnabled=True/?RCONPort, flags after params) so servers actually boot.
+
+Global conventions
+- All .bat start with @echo off then color 0A for green UI.
+- Paths are absolute where possible; repo root resolved via pushd "%~dp0..".
+- Logging: per-script logs live under Main\logs (starts.log, updates.log, server-<token>.log, etc.).
+- Prefer single-window execution; avoid extra consoles (use start /b where needed).
+- Use EnableDelayedExpansion when dynamic variable names are required (map registry).
+- Prefer call set "VAR=%%DYNAMIC%%" to dereference dynamic names.
+
+start_servers.bat (current design)
+- Map registry: numbered entries with NAME, TOKEN, MOD (supports comma/semicolon lists, cleaned to semicolons for -Mods).
+- Port allocation: BASE_GAME_PORT/BASE_QUERY_PORT/BASE_RCON_PORT increment by map index.
+- COMMON_FLAGS: appended to every launch (empty by default).
+- User flow: show map list -> optional inline debug -> target selection (numbers or ALL).
+- SteamCMD lookup: C:\steamcmd\steamcmd.exe then %ROOT%\SteamCMD\steamcmd.exe.
+- Update step: steamcmd +force_install_dir +app_update 2430930 validate.
+- Launch: builds SERVER_CMD with ports/RCON/flags/mods; inline path uses temp PowerShell script to tee output to per-map log; background path uses start /b cmd /c to append to log.
+- Per-map log: Main\logs\server-<TOKEN>.log; header written before launch; exit codes recorded.
+
+Ark Menu.bat
+- Menu-driven entry point; color 0A at top; calls EnsurePrereqs (winget/pwsh/steamcmd download helpers).
+- Start Servers -> calls Main\start_servers.bat, then watchdog from AllKnowingEye\watchdog.ps1.
+- Update/Install -> Main\Update-Ark-Servers.bat; Search/Backup dispatch to corresponding scripts.
+
+Update-Ark-Servers.bat
+- color 0A; resolves ROOT; ensure_steamcmd helper (downloads if missing).
+- UPDATE_DIR: update files; builds list update_*.bat; allows ALL selection; logs to updates.log or installs.log depending on INSTALL_MODE.
+
+Legacy start_* map scripts
+- Located under Main\start files and root\start files; now color 0A normalized.
+- Individual map launchers (older style) with fixed ports/mod lists and watchdog integration.
+
+Styling preferences
+- Keep UI minimal: banners with echoed lines, green text via color 0A.
+- Avoid duplicate color lines; ensure @echo off is first line when present.
+- ASCII only; avoid Unicode unless required.
+- Keep commands readable on one line; when complex, prefer PowerShell helper scripts (temp .ps1) instead of heavy cmd quoting.
+
+Error/logging patterns
+- Log important steps with timestamp to starts.log/updates.log.
+- For inline debug, tee output to per-map log to capture crashes.
+- Record exit codes after SteamCMD and server process.
+
+Pending/known areas
+- Inline debug currently uses temp .ps1 to tee output; background launches still suppress console spam but log to file.
+- COMMON_FLAGS available but empty.
+
+How to extend safely
+- Add maps: define MAPX_NAME/TOKEN/MOD; mod list can be comma/semicolon; tokens match _WP names.
+- Add global flags: set COMMON_FLAGS near top of start_servers.bat.
+- Keep @echo off + color 0A standard across new .bat scripts.
+
+Map registry snapshot (start_servers.bat)
+- 1 The Island / TheIsland_WP / mods: (none)
+- 2 Scorched Earth / ScorchedEarth_WP / mods: (none)
+- 3 The Center / TheCenter_WP / mods: (none)
+- 4 Aberration / Aberration_WP / mods: (none)
+- 5 Extinction / Extinction_WP / mods: (none)
+- 6 Ragnarok / Ragnarok_WP / mods: (none)
+- 7 Valguero / Valguero_WP / mods: (none)
+- 8 Crystal Isles / CrystalIsles_WP / mods: (none)
+- 9 Genesis: Part 1 / Genesis_WP / mods: (none)
+- 10 Genesis: Part 2 / Genesis2_WP / mods: (none)
+- 11 Lost Island / LostIsland_WP / mods: (none)
+- 12 ClubArk / BobsMissions_WP / mods: 1005639
+- 13 Fjordur / Fjordur_WP / mods: (none)
+- 14 Lost Colony / LostColony_WP / mods: (none)
+- 15 LostCity / LostCity_WP / mods: 1187557
+- 16 Astraeos / Astraeos_WP / mods: 988598
+- 17 Amissa / Amissa_WP / mods: 965379
+- 18 Appalachia / Appalachia_WP / mods: 935306
+- 19 Arkopolis / Arkopolis_WP / mods: 954190
+- 20 Atlantis / Atlantis_WP / mods: 1081192
+- 21 Nyrandil Free / Nyrandil_WP / mods: 965599
+- 22 Nyrandil Premium / Nyrandil_Premium_WP / mods: 1027407
+- 23 Forglar Premium / Forglar_Premium_WP / mods: 1009169
+- 24 Ice Age / Frost_WP / mods: 943275
+- 25 Insaluna / Insaluna_WP / mods: 939532
+- 26 Emerald Isles / EmeraldIsles_WP / mods: 1127117
+- 27 Svartalfheim Premium / Svartalfheim_WP / mods: 962796
+- 28 Temptress Lagoon / TemptressLagoon_WP / mods: 1017342
+- 29 ALTHEMIA Premium / ALTHEMIA / mods: 1077433
+- 30 The Volcano / TheVolcano_WP / mods: 1158003
+- 31 LOST PROTOCOL / PROTOCOL_WP / mods: 1240685
+
+Port allocation (auto)
+- GP = BASE_GAME_PORT + (index - 1)
+- QP = BASE_QUERY_PORT + (index - 1)
+- RP = BASE_RCON_PORT + (index - 1)
+- Bases: GP 7777, QP 27015, RCON 32390
+
+Logging inventory
+- Main\logs\starts.log        : start_servers selections and exit codes
+- Main\logs\updates.log       : Update-Ark-Servers update runs
+- Main\logs\installs.log      : Update-Ark-Servers when INSTALL_MODE=1
+- Main\logs\server-<TOKEN>.log: per-map launch output (header + SteamCMD/exit codes + inline tee)
+
+Inline debug behavior
+- Prompt: Debug inline Y/N. Y runs server in current console via temp .ps1 and tee to per-map log.
+- Exit code captured after inline run; written to per-map log and starts.log.
+- Background (N): start /b cmd /c appends to per-map log; console stays clean.
+
+COMMON_FLAGS usage
+- Defined near top of start_servers.bat; appended to SERVER_CMD.
+- Example: set "COMMON_FLAGS=-NoBattlEye -UseStructureStasisGrid"
+
+SteamCMD lookup order
+- C:\steamcmd\steamcmd.exe
+- %ROOT%\SteamCMD\steamcmd.exe
+
+Prereq helpers (Ark Menu.bat)
+- EnsureWinget, EnsurePwsh7, EnsureSteamCMD (downloads if missing; winget + pwsh installers).
+
+Watchdog hook
+- Ark Menu -> LaunchWatchdog executes Main\AllKnowingEye\watchdog.ps1 in same window after start_servers returns.
+
+Styling/UX rules
+- Always @echo off then color 0A at top of .bat.
+- Minimal banners (echo lines) and single-window runs; avoid extra consoles.
+- Prefer PowerShell helpers for complex piping (tee, logging) instead of heavy cmd quoting.
+- ASCII-only; avoid Unicode unless required by content.
+
+Troubleshooting tips
+- If SteamCMD missing: install to C:\steamcmd or place under Main\SteamCMD.
+- If server exe missing after update: verify install dir C:\Ark_SA\<TOKEN> contains ShooterGame\Binaries\Win64\ArkAscendedServer.exe.
+- Use Debug inline=Y to see live crash output; check per-map log afterward for exit codes and stdout/stderr.
