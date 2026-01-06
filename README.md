@@ -18,3 +18,4 @@ Operations launcher for your game tooling. Run a single menu, pick a tool, and i
 - SteamCMD lives under data/main/steamcmd; server files can be organized under data/server/*.
 - Logs are written under Logs/ with timestamped names; each tool may also create its own sub-logs.
 - No config editing is required to use the menu; just pick the option you need.
+- Updates still to come
